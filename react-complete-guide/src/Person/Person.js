@@ -8,6 +8,7 @@ const person = (props) => {
         number is {Math.floor(Math.random() * 30)}
       </p>
       <p>{props.children}</p>
+      <input type="text" onChange={props.change} />
     </div>
   );
 };
