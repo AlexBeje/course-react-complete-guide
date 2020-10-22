@@ -1,0 +1,11 @@
+.UserInput {
+  width: 30%;
+  padding: 2em;
+  margin: 1em auto;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+}
+
+.UserInput label {
+  margin-right: 0.5em;
+}
