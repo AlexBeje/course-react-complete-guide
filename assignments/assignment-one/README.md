@@ -13,6 +13,8 @@
 - Add two-way-binding to your input (in UserInput) to also display the starting username
 - Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets
 
+## Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
