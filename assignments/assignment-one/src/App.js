@@ -23,10 +23,23 @@ class App extends Component {
     });
   };
 
+  userChangeHandler = (event) => {
+    this.setState({
+      users: [
+        { userName: event.target.value, userPassword: "*****" },
+        { userName: "Bia", userPassword: "*****" },
+        { userName: "Dario", userPassword: "*****" },
+      ],
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <UserInput />
+        <UserInput
+          userName={this.state.users[0].userName}
+          change={this.userChangeHandler}
+        />
         <UserOutput
           userName={this.state.users[0].userName}
           userPassword={this.state.users[0].userPassword}
