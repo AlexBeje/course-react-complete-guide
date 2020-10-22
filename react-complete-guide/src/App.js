@@ -1,53 +1,53 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 
-const app = (props) => {
-  const [personState, setPersonState] = useState({
+class App extends Component {
+  state = {
     persons: [
       { name: "Alex", age: 27 },
       { name: "Bia", age: 21 },
       { name: "Dario", age: 0 },
     ],
-  });
-  const [otherState, setOtherState] = useState("some other value");
+    otherState: "my other state",
+  };
 
-  console.log("😏", personState, otherState);
-
-  const switchNameHandler = () => {
+  switchNameHandler = () => {
     // console.log("Button clicked");
     // DON't DO THIS: this.state.persons[0].name = "Alexandru";
-    setPersonState({
+    this.setState({
       persons: [
         { name: "Alexandru", age: 27 },
         { name: "Bia", age: 21 },
         { name: "Dario", age: 5 },
       ],
-      // otherState: personState.otherState,
+      otherState: "new other state",
     });
-    setOtherState("my new state");
   };
 
-  return (
-    <div className="App">
-      <h1>Hi, this is your first react app!</h1>
-      <button onClick={switchNameHandler}>Switch Name</button>
-      <Person
-        name={personState.persons[0].name}
-        age={personState.persons[0].age}
-      >
-        Hobbies: Riding.
-      </Person>
-      <Person
-        name={personState.persons[1].name}
-        age={personState.persons[1].age}
-      />
-      <Person
-        name={personState.persons[2].name}
-        age={personState.persons[2].age}
-      />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="App">
+        <h1>Hi, this is your first react app!</h1>
+        <button onClick={this.switchNameHandler}>Switch Name</button>
+        <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+        >
+          Hobbies: Riding.
+        </Person>
+        <Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind}
+        />
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+        />
+      </div>
+    );
+  }
+}
 
-export default app;
+export default App;
