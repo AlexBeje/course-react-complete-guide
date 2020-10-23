@@ -10,7 +10,7 @@ const person = (props) => {
       </p>
       {/* <p>My favorite number is {Math.floor(Math.random() * 30)}</p> */}
       <p>{props.children}</p>
-      <input type="text" onChange={props.change} value={props.name} />
+      <input type="text" />
     </div>
   );
 };
