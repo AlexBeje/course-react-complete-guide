@@ -51,6 +51,18 @@ class App extends Component {
       margin: "auto 0.5em",
     };
 
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          {this.state.persons.map((person) => {
+            return <Person name={person.name} age={person.age}></Person>;
+          })}
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hi, this is your first react app!</h1>
@@ -63,26 +75,7 @@ class App extends Component {
         <button style={myStyle} onClick={this.showPersonsHandler}>
           Toggle Persons
         </button>
-        {this.state.showPersons ? (
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-            >
-              Hobbies: Riding.
-            </Person>
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              click={this.switchNameHandler.bind(this, "Beje")}
-              change={this.nameChangeHandler}
-            />
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-            />
-          </div>
-        ) : null}
+        {persons}
       </div>
     );
   }
