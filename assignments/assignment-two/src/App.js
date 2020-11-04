@@ -17,8 +17,18 @@ class App extends Component {
     input: "",
   };
 
+  deleteCharHandler = (index) => {
+    const char = this.state.input.split("");
+    char.splice(index, 1);
+
+    const joinedChars = char.join("");
+
+    this.setState({
+      input: joinedChars,
+    });
+  };
+
   changeHandler = (event) => {
-    console.log("event --->", event.target.value);
     this.setState({
       input: event.target.value,
     });
@@ -40,7 +50,10 @@ class App extends Component {
         />
         <button onClick={this.resetHandler}>Reset</button>
         <ValidationComponent textLength={this.state.input.length} />
-        <CharComponent text={this.state.input} />
+        <CharComponent
+          delete={(index) => this.deleteCharHandler(index)}
+          text={this.state.input}
+        />
       </div>
     );
   }

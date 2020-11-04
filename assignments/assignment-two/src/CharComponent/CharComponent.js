@@ -13,7 +13,7 @@ const charComponent = (props) => {
 
   const splitedText = props.text.split("").map((text, i) => {
     return (
-      <div style={style} key={text + i}>
+      <div style={style} key={text + i} onClick={() => props.delete(i)}>
         {text}
       </div>
     );
